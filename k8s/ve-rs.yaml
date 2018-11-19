@@ -1,0 +1,55 @@
+---
+apiVersion: "extensions/v1beta1"
+kind: "ReplicaSet"
+metadata:
+  name: ve
+  labels:
+    app: "valengine"
+    cluster: "valengine-prod"
+  namespace: "default"
+  ownerReferences: []
+spec:
+  minReadySeconds: 10
+  replicas: 2
+  selector:
+    matchExpressions: []
+    matchLabels:
+      app: "valengine"
+      cluster: "valengine-prod"
+  template:
+    metadata:
+      finalizers: []
+      labels:
+        app: "valengine"
+        cluster: "valengine-prod"
+        load-balancer-valengine-prod: "true"
+      ownerReferences: []
+    spec:
+      containers:
+      - args: []
+        command: []
+        env: []
+        image: "amolthacker/ve"
+        imagePullPolicy: "IfNotPresent"
+        name: "hwxpe-valengine"
+        ports:
+        - containerPort: 6000
+          name: "app"
+          protocol: "TCP"
+        - containerPort: 8000
+          name: "health"
+          protocol: "TCP"
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "250Mi"
+        terminationMessagePath: "/dev/termination-log"
+        volumeMounts: []
+      dnsPolicy: "ClusterFirst"
+      imagePullSecrets:
+      - name: "docker-hub-registry"
+      restartPolicy: "Always"
+      securityContext:
+        supplementalGroups: []
+      terminationGracePeriodSeconds: 30
+      volumes: []

@@ -1,0 +1,28 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  finalizers: []
+  name: "valengine-prod"
+  namespace: "default"
+  ownerReferences: []
+spec:
+  clusterIP: "10.0.0.10"
+  deprecatedPublicIPs: []
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  ports:
+  - name: "app"
+    nodePort: 30781
+    port: 6000
+    protocol: "TCP"
+    targetPort: 6000
+  - name: "health"
+    nodePort: 31704
+    port: 8000
+    protocol: "TCP"
+    targetPort: 8000
+  selector:
+    load-balancer-valengine-prod: "true"
+  sessionAffinity: "None"
+  type: "LoadBalancer"
