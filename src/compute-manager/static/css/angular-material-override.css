@@ -1,0 +1,238 @@
+.md-button.md-small {
+    width: 20px;
+    height: 30px;
+    line-height: 20px;
+    min-height: 20px;
+    vertical-align: top;
+    font-size: 10px;
+    padding: 0 0;
+    margin: 0;
+}
+
+th:focus,
+a:focus {
+    outline: none; }
+
+.codepen-wrap {
+    margin-top: 15px; }
+
+.mdl-data-table {
+    width: 100%; }
+.mdl-data-table th {
+    cursor: pointer; }
+
+.mdl-data-table tr {
+    transition: none !important; }
+
+th md-select {
+    margin: 0; }
+
+.md-errors-spacer {
+    display: none; }
+
+ul.pagination {
+    padding: 0;
+    font-size: 0;
+    display: inline-block; }
+.pagination > li {
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-left: 0; }
+.pagination > li:first-child {
+    border-left: 1px solid #ddd;
+    border-radius: 2px 0 0 2px; }
+.pagination > li:last-child {
+    border-radius: 0 2px 2px 0; }
+.pagination a {
+    color: #444;
+    font-size: 13px;
+    padding: 0 10px;
+    line-height: 30px;
+    display: inline-block;
+    text-decoration: none; }
+.pagination .active {
+    background: #3f51b5;
+    border-color: #3f51b5; }
+.pagination .active a {
+    color: #fff; }
+.pagination-page.active {
+    background: #3f51b5; }
+.pagination-page.active a {
+    color: #fff; }
+
+.material-icons, .sortable span:before, .sortable span:after {
+    font-family: 'Material Icons';
+    font-size: 18px;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased; }
+
+.sortable span {
+    position: relative; }
+.sortable span:before {
+    content: 'arrow_drop_down';
+    position: absolute;
+    right: -18px;
+    top: -2px; }
+.sortable span:after {
+    content: 'arrow_drop_up';
+    position: absolute;
+    right: -18px;
+    top: -9px; }
+
+.sortable.sort-ascent span:before {
+    display: none; }
+
+.sortable.sort-ascent span:after {
+    top: -5px; }
+
+.sortable.sort-descent span:before {
+    top: -5px; }
+
+.sortable.sort-descent span:after {
+    display: none; }
+
+
+md-toolbar.md-small, md-toolbar.md-small .md-toolbar-tools {
+    min-height: 40px;
+    height: 40px;
+}
+
+.blinking-cursor {
+    font-weight: 100;
+    color: white;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-moz-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes "blink" {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-ms-keyframes "blink" {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-o-keyframes "blink" {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: black;
+    }
+}
+
+.host {
+    background: -webkit-linear-gradient(#fff, #ccc); /* For Safari 5.1 to 6.0 */
+}
+
+INPUT {
+    background: white !important;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 12px solid #888;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement:hover {
+    border-bottom: 12px solid #aaa;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 12px solid #888;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment:hover {
+    border-top: 12px solid #aaa;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 12px solid #888;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement:hover {
+    border-right: 12px solid #aaa;
+}
+
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 12px solid #888;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment:hover {
+    border-left: 12px solid #aaa;
+}
+
+
+::-webkit-scrollbar-track-piece  {
+    background-color: #444;
+}
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    width: 6px;
+    background-color: #666;
+    border: 1px solid black;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #fff;
+}
+
+.md-cell {
+    padding: 4px !important;
+}
+
+.md-row {
+    height: 28px !important;
+}

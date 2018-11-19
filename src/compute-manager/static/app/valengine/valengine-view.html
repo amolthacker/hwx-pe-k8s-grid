@@ -1,0 +1,201 @@
+<md-content class="md-padding">
+
+    <section class="md-whiteframe-1dp">
+        <md-toolbar class="md-accent md-small">
+            <div class="md-toolbar-tools">
+                <h3>
+                    <div layout="row">
+                        <md-icon flex>cloudy</md-icon> Deployment
+                    </div>
+                </h3>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <div layout="column" class="md-padding">
+                <div layout="row">
+                    <div flex="none" style="font-weight: bold;width:140px">Running Engines</div>
+                    <div flex>
+
+                        <div layout="row" layout-wrap>
+
+                            <tr ng-repeat="(key, value) in data">
+                                <td> {{key}} </td> <td> {{ value }} </td>
+                            </tr>
+
+                            <section ng-repeat="(nodeName, pods) in podsByNodeName track by $index" class="md-whiteframe-1dp" style="margin:4px; border-radius: 8px">
+
+                                <md-toolbar class="md-green" style="height:30px;min-height:30px">
+                                    <div class="md-toolbar-tools" style="font-size:12px;height:60px;" layout="row">
+                                    <div style="margin-top:4px;">
+                                        <md-icon flex>computer</md-icon>
+                                    </div>
+                                    <div>{{nodeName}}</div>
+                                    </div>
+                                </md-toolbar>
+                                <md-content class="md-whiteframe-1dp host" style="padding:4px;height:60px;min-width:220px">
+                                    <div layout="row" layout-wrap>
+                                        <div ng-repeat="pod in pods track by $index" flex="none" style="padding:0 2px">
+                                            <md-icon ng-style="{color: getPodColor(pod)}" style="cursor: pointer;font-size:30px;">settings_applications
+                                                <md-tooltip>{{pod.PodName}} - {{pod.PodStatus}}</md-tooltip>
+                                            </md-icon>
+                                        </div>
+                                    </div>
+                                </md-content>
+
+                                <!--<md-icon ng-style="{color: node?'green':'lightgrey'}">computer</md-icon>-->
+                                <!---->
+
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <md-slider-container layout="row">
+                    <div flex="10" style="font-weight: bold;width:140px">Update #Engines</div>
+                    <md-slider flex min="1" max="10" step="1" ng-model="valEngineCount" aria-label="valEngineCount" id="vmCount-slider" md-discrete class="md-primary" ng-change="scaleValEngine(valEngineCount)"></md-slider>
+                    <md-input-container>
+                        <input flex type="number" ng-model="valEngineCount" aria-label="valEngineCount" aria-controls="vmCount-slider">
+                    </md-input-container>
+                </md-slider-container>
+
+            </div>
+
+        </md-content>
+    </section>
+
+
+    <div style="height:30px"></div>
+    <section class="md-whiteframe-1dp">
+        <md-toolbar class="md-accent md-small">
+            <div class="md-toolbar-tools">
+                <h3>
+                    <md-icon>loop</md-icon> Job
+                </h3>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <div layout="column" class="md-padding" style="padding-bottom:0px">
+                <md-card-content>
+                    <div layout="row">
+
+                        <label style="margin-top:25px;font-weight:bold;margin-right:20px;">Submit a job</label>
+
+                        <md-input-container class="md-block" flex="10">
+                            <label>METRIC</label>
+                            <md-select ng-model="jobRequest.metricType" md-maxlength="10">
+                                <md-option ng-repeat="metricType in metricTypes track by metricType" value="{{metricType}}">
+                                    {{metricType}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container flex="12">
+                            <label>Number of Trades</label>
+                            <input type="number" value="100" ng-disabled="processingJob" ng-model="jobRequest.tradeCount">
+                        </md-input-container>
+
+                        <md-input-container flex>
+                            <md-button class="md-raised md-primary md-small" ng-click="submitJob()" ng-disabled="processingJob">
+                                <span ng-if="!processingJob">
+                                    <md-icon>play_arrow</md-icon>
+                                </span>
+                                <span ng-if="processingJob">
+                                        <center>
+                                            <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                        </center>
+                                    </span>
+                            </md-button>
+                        </md-input-container>
+                    </div>
+
+                </md-card-content>
+            </div>
+        </md-content>
+        <div style="padding:0px 20px 20px 20px" ng-show="jobs.length > 0">
+            <md-table-container>
+                <table md-table>
+                    <colgroup>
+                        <col width="60px" />
+                        <col width="60px" />
+                        <col width="60px" />
+                        <col width="200px" />
+                        <col width="200px" />
+                        <col width="*" />
+                        <col width="20px" />
+                    </colgroup>
+                    <thead md-head md-order="query.order">
+                        <tr md-row>
+                            <th md-column md-order-by="JobId">Job ID</th>
+                            <th md-column md-order-by="JobSize">Trade Count</th>
+                            <th md-column md-order-by="JobMetric">Metric</th>
+                            <th md-column md-order-by="JobStartTime">Start Time</th>
+                            <th md-column md-order-by="JobEndTime">End Time</th>
+                            <th md-column md-order-by="JobStatus">Status</th>
+                            <th md-column></th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-repeat="job in jobs  | orderBy: query.order track by job.JobId">
+                            <td md-cell>{{job.JobId}}</td>
+                            <td md-cell>{{job.JobSize | number}}</td>
+                            <td md-cell>{{job.JobMetric}}</td>
+                            <td md-cell>{{job.JobStartTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                            <td md-cell>{{job.JobEndTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                            <td md-cell>
+                                <div layout="row">
+                                    <div style="margin-right: 4px;">
+                                        <md-icon ng-if="job.JobStatus == 'Completed'" style="font-size:20px;color: green">check_circle</md-icon>
+                                        <md-progress-circular class="md-warn" md-diameter="20px" ng-if="job.JobStatus == 'Running'" style="margin-right:4px"></md-progress-circular>
+                                    </div>
+                                    <div style="font-weight:bold;color:green" ng-show="job.JobStatus == 'Completed'">
+                                        {{job.JobStatus}} in
+                                        {{getJobDuration(job)}}
+                                    </div>
+                                    <div style="font-weight:bold;color:darkorange" ng-show="job.JobStatus != 'Completed'">
+                                        {{job.JobStatus}} for
+                                        {{getJobDuration(job)}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td md-cell>
+                                <div style="font-size: 16px;margin-top:2px;">
+                                    <a href="javascript:void(0)" ng-click="clearJob(job.JobId)">
+                                        <md-icon style="font-size: 16px">delete</md-icon>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </md-table-container>
+            <div style="font-size: 12px;margin-top:2px;text-align:right">
+                <a href="javascript:void(0)" ng-click="clearJobs()">
+                    <md-icon style="font-size: 16px">delete</md-icon>
+                    Clear job history
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div style="height:30px"></div>
+    <section class="md-whiteframe-1dp">
+        <md-toolbar class="md-accent md-small">
+            <div class="md-toolbar-tools" layout="row">
+                <h3 flex>
+                    <md-icon>book</md-icon> Logs
+                </h3>
+                <div flex style="text-align:right;">
+                    <a href="javascript:void(0)" ng-click="restartLogStream()" style="font-size: 12px;"><md-icon>cached</md-icon> Restart Log Stream</a>
+                </div>
+            </div>
+        </md-toolbar>
+        <md-content style="padding:10px;">
+            <pre id="logs" style="background: #222;color:white;font-size:11px;padding:4px;height:200px;overflow: auto"><span ng-repeat="log in logs track by $index"><span ng-bind-html="ansiToHtml(log) | unsafe"></span><br /></span><span class="blinking-cursor">&#9608;</span></pre>
+        </md-content>
+    </section>
+
+
+</md-content>

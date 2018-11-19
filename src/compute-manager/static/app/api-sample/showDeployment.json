@@ -1,0 +1,17 @@
+[
+  {
+    "PodName": "pod-1",
+    "PodStatus": "Running",
+    "PodNodeName": "192.168.0.1"
+  },
+  {
+    "PodName": "pod-2",
+    "PodStatus": "Running",
+    "PodNodeName": "192.168.0.1"
+  },
+  {
+    "PodName": "pod-3",
+    "PodStatus": "Starting",
+    "PodNodeName": "192.168.0.2"
+  }
+]

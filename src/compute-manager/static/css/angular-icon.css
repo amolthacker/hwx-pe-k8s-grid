@@ -1,0 +1,17 @@
+@font-face {
+    font-family:"icomoon";
+    src:url("http://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot");
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('http://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot?-cmq1um');
+    src:url('http://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot?#iefix-cmq1um') format('embedded-opentype'),
+    url('http://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.woff?-cmq1um') format('woff'),
+    url('http://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.ttf?-cmq1um') format('truetype'),
+    url('http://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.svg?-cmq1um#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/bower_components/angular-material/angular-material.min.css">
+        <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+        <link rel="stylesheet" href="/static/bower_components/material-icons/material-icons.css">
+        <!--<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">-->
+        <link rel="stylesheet" href="/static/css/material.indigo-blue.min.css">
+        <link rel="stylesheet" href="/static/css/angular-material-override.css">
+
+        <script language="JavaScript" src="/static/bower_components/angular/angular.js"></script>
+        <script language="JavaScript" src="/static/bower_components/md-data-table/md-data-table.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-material/angular-material.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-animate/angular-animate.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-aria/angular-aria.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-cookies/angular-cookies.js"></script>
+        <script language="JavaScript" src="/static/app/app.js"></script>
+
+        <script language="JavaScript" src="/static/app/login-controller.js"></script>
+
+    </head>
+    <body>
+        <md-content ng-app="virtus" layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form" ng-controller="LoginController">
+        <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33" style="margin-top:50px;">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <img src="static/img/logo.png" align="absmiddle" style="-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6));filter:drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6));}"/>
+                        ITS <span style="color:#8f8">v2</span>
+                    </h2>
+                </div>
+            </md-toolbar>
+            <md-card-content>
+                <md-toolbar class="md-warn" style="text-align: center;padding:8px;margin-bottom:40px;min-height:36px;" ng-show="loginError">{{loginError}}</md-toolbar>
+
+                <form name="Form" ng-submit="login()">
+                    <md-input-container class="md-block">
+                        <label>Login</label>
+                        <md-icon>person</md-icon>
+                        <input type="text" name="username" ng-model="loginForm.username" required=""/>
+                        <div ng-messages="Form.email.$error" role="alert" multiple="">
+                            <div ng-message="required" class="my-message">Please enter your email.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <md-icon>lock</md-icon>
+                        <input type="password" name="password" ng-model="loginForm.password" required="" />
+                        <div ng-messages="Form.password.$error" role="alert" multiple="">
+                            <div ng-message="required" class="my-message">Please enter your password.</div>
+                        </div>
+                    </md-input-container>
+                    <md-button type="submit" ng-disabled="!Form.$valid" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
+                </form>
+            </md-card-content>
+        </md-card>
+    </md-content>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/bower_components/angular-material/angular-material.min.css">
+        <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+        <link rel="stylesheet" href="/static/bower_components/material-icons/material-icons.css">
+        <!--<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">-->
+        <link rel="stylesheet" href="/static/css/material.indigo-blue.min.css">
+        <link rel="stylesheet" href="/static/css/angular-material-override.css">
+        <link rel="stylesheet" href="/static/bower_components/md-data-table/md-data-table.css">
+
+        <script language="JavaScript" src="/static/bower_components/ansi_up/ansi_up.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular/angular.js"></script>
+        <script language="JavaScript" src="/static/bower_components/md-data-table/md-data-table.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-material/angular-material.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-animate/angular-animate.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-aria/angular-aria.js"></script>
+        <script language="JavaScript" src="/static/bower_components/angular-cookies/angular-cookies.js"></script>
+        <script language="JavaScript" src="/static/app/app.js"></script>
+        <script language="JavaScript" src="/static/app/app-route.js"></script>
+
+        <script language="JavaScript" src="/static/app/main-controller.js"></script>
+        <script language="JavaScript" src="/static/app/valengine/valengine-controller.js"></script>
+
+        <script language="JavaScript" src="/static/app/api-service.js"></script>
+
+
+    </head>
+    <body ng-app="virtus" ng-controller="MainController">
+
+
+        <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar _md _md-toolbar-transitions" style="position: fixed;z-index:100">
+
+            <div class="md-toolbar-tools docs-toolbar-tools" tabindex="-1">
+                <div layout="row" class="fill-height layout-row flex">
+                    <h2 class="md-toolbar-item md-breadcrumb md-headline ng-isolate-scope">
+                    <span class="md-breadcrumb-page ng-binding">
+                        <img src="/static/img/logo.png" align="absmiddle" style="-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6));filter:drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6));}"/>
+                        TDS Veritas Cloud <span style="color:#8f8">[Azure]</span>
+                    </span>
+                    </h2>
+
+                    <span flex></span> <!-- use up the empty space -->
+                    <span class="md">{{date | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>
+                </div>
+
+
+                <md-menu>
+                    <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+                        <md-icon md-menu-origin>view_headline</md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ng-click="logout()">
+                                <md-icon md-menu-align-target>vpn_key</md-icon>
+                                Log Out
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+
+
+            </div>
+
+            <!--
+            <md-content style="background:#aaffaa">
+                <md-nav-bar class="md-small"
+                        md-selected-nav-item="currentNavItem"
+                        nav-bar-aria-label="navigation links">
+                    <md-nav-item md-nav-click="goto('valengine')" name="ValEngine">
+                        ValEngine
+                    </md-nav-item>
+                    <md-nav-item md-nav-click="goto('logs')" name="Logs">
+                        Logs
+                    </md-nav-item>
+
+                </md-nav-bar>
+            </md-content>
+-->
+
+        </md-toolbar>
+
+        <!--<div ng-include src="'app/valengine/valengine-view.html'" ng-controller="ValEngineController"></div>-->
+
+        <div style="height: 60px"></div>
+        <div ui-view></div>
+
+
+
+    </body>
+</html>
