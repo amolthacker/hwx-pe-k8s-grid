@@ -14,5 +14,5 @@ RUN cp $COMPUTE_BASE/mockvalengine-0.1.0.jar /usr/local/lib/.
 # Start Engine
 ENTRYPOINT go run $COMPUTE_BASE/valengine.go
 
-# Ports : 6000 (RPC) | 8000 (HTTP-Health)
+# Ports: 6000 (RPC) | 8000 (HTTP-Health)
 EXPOSE 6000 8000

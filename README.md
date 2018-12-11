@@ -50,7 +50,16 @@ A web based management user interface for the
 * Aggregated compute engine log stream
 
 The backend is written in Go and frontend with AngularJS
- 
+
+The demo below captures the demonstration wherein we will:
+•	First go through deployment specifics
+•	Submit a bunch of compute jobs
+•	Watch the pods auto-scale out
+•	See the subsequent job submissions balanced across the scaled-out compute engine grid
+•	See the compute engine grid scale back in after a period of reduced activity
+
+![demo](https://gfycat.com/TheseLazyJavalina)
+
 
 ## Dependencies
 

@@ -113,7 +113,8 @@ func handleSubmitJob(w http.ResponseWriter, r *http.Request) {
 	id := rand.Intn(1000)
 	idStr := strconv.Itoa(id)
 
-	jobInfo := JobInfo{idStr, metric, numTrades, time.Now(), time.Now(), "Running"}
+	now := time.Now()
+	jobInfo := JobInfo{idStr, metric, numTrades, now, now, "Running"}
 	addJobInfo(&jobInfo)
 
 	nT, _ := strconv.Atoi(numTrades)
