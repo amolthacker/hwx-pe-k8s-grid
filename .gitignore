@@ -18,5 +18,8 @@
 .idea/
 /compute-engine.iml
 
+# VSCode
+.DS_Store
+
 # init
 scratch/
