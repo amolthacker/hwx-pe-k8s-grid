@@ -1,0 +1,39 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: valengine-prod
+  labels:
+    app: "valengine"
+    cluster: "valengine-prod"
+  namespace: "default"
+spec:
+  minReadySeconds: 10
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "valengine"
+      cluster: "valengine-prod"
+  template:
+    metadata:
+      labels:
+        app: "valengine"
+        cluster: "valengine-prod"
+        load-balancer-valengine-prod: "true"
+    spec:
+      containers:
+        - name: "valengine"
+          image: "amolthacker/ve"
+          imagePullPolicy: "IfNotPresent"
+          ports:
+          - containerPort: 6000
+            name: "app"
+            protocol: "TCP"
+          - containerPort: 8000
+            name: "health"
+            protocol: "TCP"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "250Mi"
+          terminationMessagePath: "/dev/termination-log"

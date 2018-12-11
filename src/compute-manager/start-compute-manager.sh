@@ -1,4 +1,4 @@
 #!/bin/bash
 
-nohup go run ComputeManager.go > ~/tds-veritas/logs/ComputeManager.log &
+nohup go run ComputeManager.go > /home/hwxadmin/hwx-pe/logs/ComputeManager.log &
 

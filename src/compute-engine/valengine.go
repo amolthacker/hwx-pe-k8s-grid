@@ -54,7 +54,7 @@ func main() {
 func simulatedParRateCompute(r *kite.Request) (interface{}, error) {
 	val := extractArgs(r)
 	var sim int = int(val * 1000)
-	return montecarloPi(sim), nil
+	return montecarloCompute(sim), nil
 }
 
 func simulatedCompute(metric string, r *kite.Request) (interface{}, error) {
@@ -107,7 +107,7 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-func montecarloPi(samples int) float64 {
+func montecarloCompute(samples int) float64 {
 	cpus := runtime.NumCPU()
 
 	threadSamples := samples / cpus

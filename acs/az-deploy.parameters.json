@@ -1,0 +1,21 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "hwxadmin"
+    },
+    "sshPublicKey": {
+      "value": "ssh-pub-key"
+    },
+    "edgeDnsPrefix": {
+      "value": "hwx-pe"
+    },
+    "servicePrincipalAppId": {
+      "value": "spAppId"
+    },
+    "servicePrincipalAppKey": {
+      "value": "spAppSecret"
+    }
+  }
+}

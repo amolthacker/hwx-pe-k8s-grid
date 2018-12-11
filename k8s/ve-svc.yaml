@@ -7,10 +7,6 @@ metadata:
   namespace: "default"
   ownerReferences: []
 spec:
-  clusterIP: "10.0.0.10"
-  deprecatedPublicIPs: []
-  externalIPs: []
-  loadBalancerSourceRanges: []
   ports:
   - name: "app"
     nodePort: 30781

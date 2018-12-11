@@ -1,0 +1,21 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "hwxadmin"
+    },
+    "sshPublicKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC59T0B8tNaUxS3nivsJ/HOL9Hz9w/xnUevSa41OiqdL0JZQwuc1+eZQSzk9WBSoJ6G3onjo9eauFmfbKSJW3fb8OgtJiXgmcLNknS9FjqO0IgYFtP5emrdTq4biK05EFGZzU/6UvsDdDNli5+VKMcCz5dBag7qBFEriZc+LfGYYg6VQgguwykEeVWtkxRfyflx6htiLX463/T8MnYcC29ehtRAg3tXgRkBp62KlYtbQAgwPrV2H30tVl4kQLxKtYzY2gMDlITIbrBftm79cyzKtAMbHsMumaVg3VBC9XIYYBkQdMtNu00o9g6BsU8voVv6NtpobmXX68QEdjHNkPfn hwxadmin@azure"
+    },
+    "edgeDnsPrefix": {
+      "value": "hwx-pe"
+    },
+    "servicePrincipalAppId": {
+      "value": "4ba716a6-c943-495e-90c1-5c5382a395ee"
+    },
+    "servicePrincipalAppKey": {
+      "value": "b31346d9-8a76-4a20-9b7d-9431ce60787f"
+    }
+  }
+}

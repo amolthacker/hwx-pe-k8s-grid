@@ -6,7 +6,7 @@ ENV COMPUTE_BASE /hwx-pe/compute/
 
 # Copy lib and scripts
 RUN mkdir -p $COMPUTE_BASE
-ADD src/compute-engine/. $COMPUTE_BASE
+ADD . $COMPUTE_BASE
 RUN chmod +x $COMPUTE_BASE/compute.sh
 RUN cp $COMPUTE_BASE/compute.sh /usr/local/bin/.
 RUN cp $COMPUTE_BASE/mockvalengine-0.1.0.jar /usr/local/lib/.

@@ -19,7 +19,4 @@
 /compute-engine.iml
 
 # init
-runbook.sh
-scripts/
-helm/
-az/
+scratch/

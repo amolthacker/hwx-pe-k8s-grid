@@ -2,6 +2,9 @@
 apiVersion: "extensions/v1beta1"
 kind: "ReplicaSet"
 metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "2"
+    deployment.kubernetes.io/max-replicas: "2"
   name: ve
   labels:
     app: "valengine"

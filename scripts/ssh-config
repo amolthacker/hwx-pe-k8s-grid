@@ -1,0 +1,22 @@
+Host *
+  StrictHostKeyChecking no
+
+Host hwxadmin-start
+  HostName hwx-pe.eastus.cloudapp.azure.com
+  IdentityFile ~/.ssh/az
+  ControlMaster yes
+  ControlPath ~/.ssh/hwxadmin-tunnel.ctl
+  RequestTTY no
+  # Default port if running 'kubectl proxy' on the VM
+  LocalForward 8001 127.0.0.1:8001
+  # Compute Manager
+  LocalForward 8090 127.0.0.1:8090
+  # Compute Engine Container Log Stream
+  LocalForward 8888 127.0.0.1:8888
+  User hwxadmin
+
+Host hwxadmin-stop
+  HostName hwx-pe.eastus.cloudapp.azure.com
+  IdentityFile ~/.ssh/az
+  ControlPath ~/.ssh/hwxadmin-tunnel.ctl
+  RequestTTY no
