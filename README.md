@@ -51,11 +51,11 @@ A web based management user interface for the
 
 The backend is written in Go and frontend with AngularJS
 
-The demo below captures the demonstration wherein we will:
+The demo below will:
 * First go through deployment specifics
 * Submit a bunch of compute jobs
 * Watch the pods auto-scale out
-* See the subsequent job submissions balanced across the scaled-out compute engine grid
+* See the subsequent job submissions get balanced across the scaled-out compute engine grid
 * See the compute engine grid scale back in after a period of reduced activity
 
 Demo - https://amolthacker.github.io/hwx-pe-k8s-grid/
