@@ -58,7 +58,7 @@ The demo below will:
 * See the subsequent job submissions get balanced across the scaled-out compute engine grid
 * See the compute engine grid scale back in after a period of reduced activity
 
-Demo - https://amolthacker.github.io/hwx-pe-k8s-grid/
+Demo - https://youtu.be/OFkEZKlHIbg
 
 
 ## Dependencies
