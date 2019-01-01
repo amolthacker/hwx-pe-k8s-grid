@@ -60,9 +60,6 @@ The demo below captures the demonstration wherein we will:
 
 Demo - https://amolthacker.github.io/hwx-pe-k8s-grid/
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OFkEZKlHIbg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 
 ## Dependencies
 
